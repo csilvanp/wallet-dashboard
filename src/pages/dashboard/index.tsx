@@ -5,8 +5,8 @@ import SelectInput from '../../components/SelectInput';
 
 const Dashboard: React.FC = () => {
   const options = [
-    { value: 'caua', label: 'caua' },
-    { value: 'victor', label: 'victor' },
+    { value: 'caua', label: 'caua', id: 1 },
+    { value: 'victor', label: 'victor', id: 2 },
   ]
   return (
     <Container>
