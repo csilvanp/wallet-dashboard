@@ -71,7 +71,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
       }
     })
     setData(response);
-  }, []);
+  }, [listData, data.length]);
 
   return (
     <Container>
