@@ -1,7 +1,9 @@
 import React, { useMemo, useState, useEffect } from 'react';
+import { v4 as uuid_v4 } from 'uuid';
 import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
 import HistoryFinanceCard from '../../components/HistoryFinanceCard';
+import listOfMonths from '../../utils/months';
 import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
 import formatCurrency from '../../utils/formatCurrency';
@@ -43,25 +45,31 @@ const List: React.FC<IRouteParams> = ({ match }) => {
     return type === 'entry-balance' ? gains : expenses;
   }, [type]);
 
-  const months = [
-    { value: 1, label: 'Janeiro', id: 1 },
-    { value: 2, label: 'Fevereiro', id: 2 },
-    { value: 3, label: 'Março', id: 3 },
-    { value: 4, label: 'Abril', id: 4 },
-    { value: 5, label: 'Maio', id: 5 },
-    { value: 6, label: 'Junho', id: 6 },
-    { value: 7, label: 'Julho', id: 7 },
-    { value: 8, label: 'Agosto', id: 8 },
-    { value: 9, label: 'Setembro', id: 9 },
-    { value: 10, label: 'Outubro', id: 10 },
-    { value: 11, label: 'Novembro', id: 11 },
-    { value: 12, label: 'Dezembro', id: 12 },
-  ]
+  const years = useMemo(() => {
+    let uniqueYears: number[] = [];
+    listData.forEach(item => {
+      const date = new Date(item.date);
+      const year = date.getFullYear();
+      if (!uniqueYears.includes(year)) {
+        uniqueYears.push(year);
+      }
+    });
+    return uniqueYears.map(year => {
+      return {
+        value: year,
+        label: year
+      }
+    });
+  }, [listData]);
 
-  const years = [
-    { value: 2020, label: 2020, id: 2020 },
-    { value: 2021, label: 2021, id: 2021 },
-  ]
+  const months = useMemo(() => {
+    return listOfMonths.map((month, index) => {
+      return {
+        value: index + 1,
+        label: month
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const filteredDate = listData.filter(item => {
@@ -73,7 +81,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 
     const formattedData = filteredDate.map(item => {
       return {
-        id: String(new Date().getTime()) + item.amount,
+        id: uuid_v4(),
         description: item.description,
         amountFormatted: formatCurrency(Number(item.amount)),
         frequency: item.frequency,
