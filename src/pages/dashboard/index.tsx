@@ -5,13 +5,13 @@ import SelectInput from '../../components/SelectInput';
 
 const Dashboard: React.FC = () => {
   const options = [
-    { value: 'caua', label: 'caua', id: 1 },
-    { value: 'victor', label: 'victor', id: 2 },
+    { value: 'caua', label: 'caua' },
+    { value: 'victor', label: 'victor' }
   ]
   return (
     <Container>
       <ContentHeader title="Dashboard" lineColor="#FFF">
-        <SelectInput options={options} />
+        <SelectInput options={options} onChange={() => { }} />
       </ContentHeader>
     </Container>
   )
