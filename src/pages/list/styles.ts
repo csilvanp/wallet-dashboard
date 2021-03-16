@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div``;
-export const Content = styled.div``;
+export const Content = styled.main``;
 export const Filters = styled.div`
   width: 100%;
   display: flex;
@@ -14,8 +14,8 @@ export const Filters = styled.div`
     background: none;
     color: ${props => props.theme.colors.white};
     margin: 0 10px;
-    transition: opacity .3s;
     opacity: .4;
+    transition: opacity .3s;
     :hover {
       opacity: .8;
     }
