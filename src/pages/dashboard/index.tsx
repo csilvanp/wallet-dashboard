@@ -58,7 +58,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <ContentHeader title="Dashboard" lineColor="#FFF">
+      <ContentHeader title="Dashboard" lineColor="#F7931B">
         <SelectInput
           options={months}
           onChange={(e) => handleMonthSelected(e.target.value)}
