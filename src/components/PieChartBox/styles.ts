@@ -60,4 +60,8 @@ export const Legend = styled.li<ILegendProps>`
   }
 `;
 
-export const RightSide = styled.main``;
+export const RightSide = styled.main`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+`;
