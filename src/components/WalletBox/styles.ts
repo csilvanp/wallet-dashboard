@@ -30,4 +30,38 @@ export const Container = styled.div<IContainerProps>`
     position: absolute;
     bottom: 10px;
   }
+
+  @media(max-width: 770px){
+    > span {
+      font-size: 14px;
+    }
+    > h3 {
+      word-wrap: break-word;
+      font-size: 20px;
+      
+      > strong {
+        display: inline-block;
+        width: 100%;
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media(max-width: 420px){
+    width: 100%;
+    > h3 {
+      display: flex;
+
+      strong {
+        display: initial;
+        width: auto;
+        font-size: 20px;
+      }
+      
+      strong:after {
+        display: inline-block;
+        content: ' ';
+      }
+    }
+  }
 `;
