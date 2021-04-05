@@ -8,37 +8,35 @@ import {
   MdExitToApp
 } from 'react-icons/md';
 
-const Aside: React.FC = () => {
-  return (
-    <Container>
-      <Header>
-        <LogoImg src={logoImg} alt="Logo Wallet" />
-        <Title>Wallet</Title>
-      </Header>
+const Aside: React.FC = () => (
+  <Container>
+    <Header>
+      <LogoImg src={logoImg} alt="Logo Wallet" />
+      <Title>Wallet</Title>
+    </Header>
 
-      <MenuContainer>
-        <MenuItemLink href="/dashboard">
-          <MdDashboard />
+    <MenuContainer>
+      <MenuItemLink href="/dashboard">
+        <MdDashboard />
           Dashboard
         </MenuItemLink>
 
-        <MenuItemLink href="/list/entry-balance">
-          <MdArrowUpward />
+      <MenuItemLink href="/list/entry-balance">
+        <MdArrowUpward />
           Entradas
         </MenuItemLink>
 
-        <MenuItemLink href="/list/exit-balance">
-          <MdArrowDownward />
+      <MenuItemLink href="/list/exit-balance">
+        <MdArrowDownward />
           Saídas
         </MenuItemLink>
 
-        <MenuItemLink href="#">
-          <MdExitToApp />
+      <MenuItemLink href="#">
+        <MdExitToApp />
           Sair
         </MenuItemLink>
-      </MenuContainer>
-    </Container>
-  )
-}
+    </MenuContainer>
+  </Container>
+);
 
 export default Aside;
