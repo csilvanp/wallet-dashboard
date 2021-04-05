@@ -37,6 +37,7 @@ export const Form = styled.form`
 `;
 
 export const FormTitle = styled.h2`
+  margin-bottom: 35px;
   color: ${props => props.theme.colors.white};
 
   &:after{
