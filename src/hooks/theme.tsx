@@ -34,13 +34,23 @@ interface ITheme {
 const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
 
 const ThemeProvider: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState<ITheme>(dark);
+  const [theme, setTheme] = useState<ITheme>(() => {
+    const savedTheme = localStorage.getItem('@wallet:theme');
+
+    if (savedTheme) {
+      return JSON.parse(savedTheme);
+    } else {
+      return dark;
+    }
+  });
 
   const toggleTheme = () => {
     if (theme.title === 'dark') {
       setTheme(light);
+      localStorage.setItem('@wallet:theme', JSON.stringify(light));
     } else {
       setTheme(dark);
+      localStorage.setItem('@wallet:theme', JSON.stringify(dark));
     }
   };
 
