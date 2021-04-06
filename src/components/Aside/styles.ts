@@ -39,9 +39,8 @@ export const LogoImg = styled.img`
   height: 40px;
   width: 40px;
 
-  @media(max-width: 600px){
-    width: 35px;
-    height: 35px;
+  @media(max-width: 519px){
+    display: none;
   }
 `;
 
@@ -94,5 +93,28 @@ export const MenuItemButton = styled.button`
   > svg {
     font-size: 18px;
     margin-right: 5px;
+  }
+`;
+
+export const ToggleMenu = styled.button`
+  width: 40px;
+  height: 40px;
+
+  border-radius: 5px;
+  font-size: 22px;
+  background-color: ${props => props.theme.colors.warning};
+  color: ${props => props.theme.colors.white};
+
+  transition: opacity .3s;
+  &:hover{
+    opacity: 0.7;
+  }
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media(min-width: 520px){
+    display: none;
   }
 `;
