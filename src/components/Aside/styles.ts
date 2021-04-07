@@ -4,6 +4,10 @@ interface IContainerProps {
   menuIsOpen: boolean;
 }
 
+interface IThemeToggleFooterProps {
+  menuIsOpen: boolean;
+}
+
 export const Container = styled.div<IContainerProps>`
   grid-area: AS;
   background-color: ${props => props.theme.colors.secondary};
@@ -39,7 +43,7 @@ export const LogoImg = styled.img`
   height: 40px;
   width: 40px;
 
-  @media(max-width: 519px){
+  @media(max-width: 600px){
     display: none;
   }
 `;
@@ -114,7 +118,18 @@ export const ToggleMenu = styled.button`
   justify-content: center;
   align-items: center;
 
-  @media(min-width: 520px){
+  @media(min-width: 601px){
     display: none;
   }
+`;
+
+export const ThemeToggleFooter = styled.footer<IThemeToggleFooterProps>`
+  display: none;
+  position: absolute;
+  bottom: 30px;
+
+  @media(max-width: 600px){
+    display: ${props => props.menuIsOpen ? 'flex' : 'none'};
+  }
+  
 `;

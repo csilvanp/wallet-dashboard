@@ -9,6 +9,10 @@ export const Grid = styled.div`
     'AS CT';
   height: 100vh;
 
+  @media(max-width: 670px){
+    grid-template-columns: 30%;
+  }
+  
   @media(max-width: 600px){
     grid-template-columns: 100%;
     grid-template-rows: 70px auto;
