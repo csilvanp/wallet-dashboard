@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animateDownToUp } from '../../utils/animations';
 
 interface ILegendProps {
   color: string;
@@ -13,6 +14,8 @@ export const Container = styled.div`
   margin: 10px 0;
   padding: 30px 20px;
   border-radius: 7px;
+
+  animation: ${animateDownToUp} .5s;
 `;
 
 export const ChartContainer = styled.div`

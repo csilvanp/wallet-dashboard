@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animateDownToUp } from '../../utils/animations';
 
 interface IContainerProps {
   color: string;
@@ -14,6 +15,9 @@ export const Container = styled.div<IContainerProps>`
   padding: 10px 20px;
   position: relative;
   overflow: hidden;
+
+  animation: ${animateDownToUp} .5s;
+
   > img {
     height: 110%;
     position: absolute;

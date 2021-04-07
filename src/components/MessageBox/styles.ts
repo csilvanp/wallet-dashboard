@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animateLeftToRigth } from '../../utils/animations';
 
 export const Container = styled.div`
   width: 48%;
@@ -11,6 +12,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  animation: ${animateLeftToRigth} .5s;
 
   > header img {
     width: 35px;

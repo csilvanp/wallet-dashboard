@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animateRightToLeft } from '../../utils/animations';
 
 interface ILegendProps {
   color: string;
@@ -12,6 +13,8 @@ export const Container = styled.div`
   color: ${props => props.theme.colors.white};
   border-radius: 7px;
   display: flex;
+
+  animation: ${animateRightToLeft} .5s;
 
   @media(max-width: 770px){
     display: flex;

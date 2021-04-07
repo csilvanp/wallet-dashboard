@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { animateLeftToRigth } from '../../utils/animations';
 
 interface ITagProps {
   color: string;
@@ -16,6 +17,9 @@ export const Container = styled.li`
   cursor: pointer;
   transition: all .3s;
   position: relative;
+  
+  animation: ${animateLeftToRigth} .5s ease;
+  
   &:hover{
     opacity: .7;
     transform: translateX(10px);
