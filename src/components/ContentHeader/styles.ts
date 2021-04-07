@@ -9,6 +9,10 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
+
+  @media(max-width: 420px){
+    margin-bottom: 15px;
+  }
 `;
 
 export const TitleContainer = styled.div<ITitleContainerProps>`
@@ -21,8 +25,14 @@ export const TitleContainer = styled.div<ITitleContainerProps>`
       border-bottom: 10px solid ${props => props.lineColor}
     }
   }
+  padding-right: 10px;
 `;
 
 export const Controllers = styled.div`
   display: flex;
+
+  @media(max-width: 420px){
+    flex-direction: column;
+    align-items: center;
+  }
 `;
