@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Layout from '../components/Layout';
-import Dashboard from '../pages/Dashboard';
-import List from '../pages/List';
+import Dashboard from '../pages/dashboard';
+import List from '../pages/list';
 
 const AppRoutes: React.FC = () => (
   <Layout>
