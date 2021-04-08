@@ -1,46 +1,23 @@
-# Getting Started with Create React App
+# Wallet Dashboard 📊
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project made with ReactJS and TypeScript, using [Recharts](https://recharts.org/en-US) library and [React Count-up](https://www.npmjs.com/package/react-countup), based on this [course](https://www.udemy.com/course/react-e-typescript/), to practice front-end concepts and React concepts.
 
-## Available Scripts
+## Link to the project: [Wallet Dashboard](https://wallet-dashboard.vercel.app)
 
-In the project directory, you can run:
+It's a simple personal dashboard, to monitore finances in a visual way. There are 3 main pages in the app, and the first one you will see is the Sign-up page.
+I didn't use database, so the values of the application are in most static. To access the dashboard, you will need to sign-in with this values:
 
-### `yarn start`
+### email: `user@email.com`
+### password: `password`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![signin gif](https://user-images.githubusercontent.com/65902368/114098662-0ddd7400-9898-11eb-9412-9a89e3e23306.gif)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+After that, you will be able to navigate in the application, starting with the dashboard screen. The app allows you to change themes, select the months and year to calculate the balance and see your gains and expenses (in the list page).
 
-### `yarn test`
+![dashboard gif](https://user-images.githubusercontent.com/65902368/114098992-83494480-9898-11eb-9110-b3428a9a539c.gif)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The last part are the list pages, that allows to the user select the respective expenses or gains, based in if they're recurrent or eventual. There are two similar screens, "Entradas" and "Saídas", which can be accessed in the aside menu.
 
-### `yarn build`
+![List pages](https://user-images.githubusercontent.com/65902368/114097547-90653400-9896-11eb-9393-39e73dd445b1.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Credits to [Rodrigo Santana](https://github.com/rodrigorgtic), as the whole project was based in his course, with some slightly changes.
