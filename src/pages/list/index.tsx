@@ -8,7 +8,9 @@ import gains from '../../repositories/gains';
 import expenses from '../../repositories/expenses';
 import formatCurrency from '../../utils/formatCurrency';
 import formatDate from '../../utils/formatDate';
+import formatTagColor from '../../utils/formatTagColor';
 import { Container, Content, Filters } from './styles';
+import { useTheme } from '../../hooks/theme';
 
 interface IRouteParams {
   match: {
@@ -32,19 +34,33 @@ const List: React.FC<IRouteParams> = ({ match }) => {
   const [monthSelected, setMonthSelected] = useState<number>(new Date().getMonth() + 1);
   const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
   const [frequencyFilterSelected, setFrequencyFilterSelected] = useState(['recorrente', 'eventual']);
+  const { theme } = useTheme();
 
   const movementType = match.params.type;
   const pageData = useMemo(() => {
-    return movementType === 'entry-balance' ? {
-      title: 'Entradas',
-      lineColor: '#4E41F0',
-      data: gains
-    } : {
-      title: 'Saídas',
-      lineColor: '#E44C4E',
-      data: expenses
+    if (theme.title === 'dark') {
+      return movementType === 'entry-balance' ? {
+        title: 'Entradas',
+        lineColor: '#4E41F0',
+        data: gains
+      } : {
+        title: 'Saídas',
+        lineColor: '#E44C4E',
+        data: expenses
+      }
+    } else {
+      return movementType === 'entry-balance' ? {
+        title: 'Entradas',
+        lineColor: '#03BB85',
+        data: gains
+      } : {
+        title: 'Saídas',
+        lineColor: '#FF6961',
+        data: expenses
+      }
     }
-  }, [movementType]);
+
+  }, [movementType, theme]);
 
   const years = useMemo(() => {
     let uniqueYears: number[] = [];
@@ -111,6 +127,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
       return month === monthSelected && year === yearSelected && frequencyFilterSelected.includes(item.frequency);
     });
 
+
     const formattedData = filteredDate.map(item => {
       return {
         id: uuid_v4(),
@@ -118,11 +135,12 @@ const List: React.FC<IRouteParams> = ({ match }) => {
         amountFormatted: formatCurrency(Number(item.amount)),
         frequency: item.frequency,
         dateFormatted: formatDate(item.date),
-        tagColor: item.frequency === 'recorrente' ? '#4E41F0' : '#E44C4E'
+        tagColor: formatTagColor(item.frequency, theme.title)
       }
+
     })
     setData(formattedData);
-  }, [data.length, monthSelected, frequencyFilterSelected, yearSelected, pageData]);
+  }, [data.length, monthSelected, frequencyFilterSelected, yearSelected, pageData, theme]);
 
   return (
     <Container>
